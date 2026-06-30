@@ -1,0 +1,118 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/menu_list.css' %}">
+{% endblock %}
+
+{% block title %}
+<title>Notre Carte</title>
+{% endblock %}
+
+{% block content %}
+
+<section class="menu-hero">
+    <h3>Accompagnement supplémentaire <span class="accompagnement">+4€</span></h3>
+    <p class="accompagnement">Patates douces | Riz blanc parfumé | Salade verte ou composée | Attiéké | Chikwangue | Ignames | Aloko</p>
+
+    {% if categories %}
+        <div class="category-nav">
+
+            {% for category in categories %}
+                <a href="#cat-{{ category.slug }}">
+                    {{ category.name }}
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+</section>
+
+
+<div class="container">
+
+    {% if request.user.is_authenticated %}
+        <div class="admin-bar">
+            <a href="{% url 'menuapp:create' %}" class="add-btn">
+                + Ajouter un produit
+            </a>
+        </div>
+    {% endif %}
+
+
+    {% for category in categories %}
+
+        <section
+            id="cat-{{ category.slug }}"
+            class="category-section"
+        >
+
+            <div class="category-header">
+
+                <h2>
+                    {{ category.name }}
+                </h2>
+
+                <span>
+                    {{ category.products.count }} articles
+                </span>
+
+            </div>
+
+            <div class="products">
+
+                {% for product in category.products.all %}
+
+                    <article class="product-card">
+
+                        {% if product.image %}
+                            <div class="image-wrapper">
+                                <img
+                                    src="{{ product.image.url }}"
+                                    alt="{{ product.name }}"
+                                >
+                            </div>
+                        {% endif %}
+
+                        <div class="card-content">
+
+                            <div class="top-row">
+                                <h3>
+                                    {{ product.name }}
+                                </h3>
+
+                                <span class="price">
+                                    {{ product.price }} €
+                                </span>
+                            </div>
+
+                            {% if product.description %}
+                                <p class="desc">
+                                    {{ product.description }}
+                                </p>
+                            {% endif %}
+
+                        </div>
+
+                    </article>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+    {% empty %}
+
+        <div class="empty">
+
+            <h2>
+                Aucun menu disponible
+            </h2>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

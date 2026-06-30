@@ -1,0 +1,56 @@
+{% extends "layout/base.html" %}
+
+
+
+{% load static %}
+
+
+{%  block head %}
+    <style>
+        /* login page */
+        .login-widget{
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 200px;
+        }
+
+        .login-widget h3{
+            text-align: center;
+        }
+
+        .login-btn{
+            float: right;
+            background-color: #412018;
+            color: #F0D79F;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 0;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row content-login justify-content-center">
+            <div class="col-md-4 login-widget" style="background: whitesmoke;">
+                <h3 style="color: #412018;">Connexion</h3>
+                <hr>
+                {% for message in messages %}
+                    <p style="color: red;">{{ message }}</p>
+                {% endfor %}
+    
+                <form method="POST" action="">
+                    {% csrf_token %}
+                        <input type="text" name="username" placeholder="Votre nom" class="form-control" required> <br />
+                        <input type="password" name="password" placeholder="Votre mot de passe" class="form-control" required> <br />
+                        <input class="login-btn" type="submit" value="Se connecter">
+                </form>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-4 mt-5">
+            </div>
+        </div>
+    </div>
+{% endblock content %}

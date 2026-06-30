@@ -1,0 +1,63 @@
+{% extends "layout/base.html" %} {% load static %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/reservation.css' %}">
+{% endblock %}
+
+{% block title %}
+    <title>Liste des réservations</title>
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+
+        <h1>Gestion des réservations</h1>
+
+        {% for r in reservations %}
+
+            <div class="reservation-card">
+
+                <div class="top">
+                    <h2>{{ r.customer_name }}</h2>
+                    <p style="font-style: italic; font-size: 15px;">{{ r.reference }}</p>
+                    <span class="status {{ r.status }}">
+                        {{ r.get_status_display }}
+                    </span>
+                </div>
+
+                <p>📞 {{ r.phone }} | ✉️ {{ r.email }}</p>
+                <p>👥 {{ r.people_count }} personnes</p>
+                <p>📅 {{ r.reservation_date }}</p>
+
+                {% if r.message %}
+                    <p class="message">{{ r.message }}</p>
+                {% endif %}
+
+                <div class="actions">
+
+                    {% if r.status != "confirmed" %}
+                        <a class="btn" style="background-color: green !important;"
+                        href="{% url 'reservationapp:update_status' r.id 'confirmed' %}">
+                            Confirmer
+                        </a>
+                    {% endif %}
+
+                    {% if r.status != "cancelled" %}
+                        <a class="btn" style="background-color: red !important;"
+                        href="{% url 'reservationapp:update_status' r.id 'cancelled' %}">
+                            Annuler
+                        </a>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        {% empty %}
+            <p>Aucune réservation.</p>
+        {% endfor %}
+
+    </div>
+{% endblock %}

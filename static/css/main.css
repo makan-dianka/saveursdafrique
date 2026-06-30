@@ -1,0 +1,62 @@
+.main-title h2 {
+    margin-top: 150px;
+    text-align: center;
+    color: #62621B;
+    font-family: 'Libre Baskerville';
+    font-size: 40px;
+}
+
+.africa-title {
+    color: #62621B;
+    font-family: 'Libre Baskerville';
+}
+
+.africa-text {
+    font-family: 'Libre Baskerville';
+}
+
+.saintlouisienne-card {
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* .saintlouisienne-card .africa-text {
+    box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
+} */
+
+.main-description {
+    margin-top: 150px;
+    background-color: #412018;
+    color: #F0D79F;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+
+.main-description h4{
+    margin-bottom: 30px;
+    font-family: 'Libre Baskerville';
+}
+
+.main-description h4 a{
+    text-decoration: none;
+    color: #F0D79F;
+}
+
+
+
+.menu-btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+
+.menu-btn button {
+    background-color: #412018;
+    color: #F0D79F;
+    border-radius: 25px;
+    padding: 25px;
+    margin-top: 150px;
+}

@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #f7f7f7;
+    color: #333;
+}
+
+/* HEADER */
+.header {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+/* CONTAINER */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 120px;
+    padding: 20px 0;
+}
+
+/* CATEGORY */
+.category {
+    margin-bottom: 40px;
+}
+
+.category h2 {
+    border-left: 5px solid #ff6b35;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
+/* PRODUCTS GRID */
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* CARD */
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-body h3 {
+    margin: 0;
+}
+
+.desc {
+    font-size: 14px;
+    color: #666;
+    margin: 8px 0;
+}
+
+.price {
+    font-weight: bold;
+    color: #ff6b35;
+}
+
+/* FORM */
+.form-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    margin-top: 120px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.form-container h1 {
+    margin-bottom: 20px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.btn {
+    background: #ff6b35;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background: #e85a2a;
+}

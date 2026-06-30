@@ -1,0 +1,63 @@
+{% extends "layout/base.html" %} {% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1>Saveurs d'afrique</h1>
+            <p>Restaurant africain à Montpellier</p>
+
+            <a href="{% url 'menuapp:menu' %}" class="btn btn-hero">
+                Voir le menu
+            </a>
+        </div>
+    </section>
+
+    <!-- CATEGORIES  SECTION -->
+    <section class="categories">
+        <div class="container">
+            <h2>Découvrez notre carte</h2>
+            <div class="cards">
+                <div class="card">
+                    <img src="{% static 'images/salade.webp' %}" alt="">
+                    <h3>Entrées</h3>
+                    <p>Fraîches et savoureuses</p>
+                </div>
+
+                <div class="card">
+                    <img src="{% static 'images/plat-cuisine.jpg' %}" alt="">
+                    <h3>Plats cuisinés</h3>
+                    <p>Saveurs authentiques</p>
+                </div>
+
+                <div class="card">
+                    <img src="{% static 'images/grillade.jpg' %}" alt="">
+                    <h3>Grillades</h3>
+                    <p>Cuisson traditionnelle</p>
+                </div>
+
+                <div class="card">
+
+                    <img src="{% static 'images/boisson.jpeg' %}" alt="">
+                    <h3>Boissons</h3>
+                    <p>Cocktails & fraîcheur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESERVATION SECTION -->
+    <section class="reservation">
+        <div class="container">
+            <h2>Réservez votre table</h2>
+            <p>Préparez votre visite en quelques clics.</p>
+            <a href="{% url 'reservationapp:create' %}" class="btn-primary">Réserver maintenant</a>
+        </div>
+    </section>
+
+{% endblock %}

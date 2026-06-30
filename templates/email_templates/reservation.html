@@ -1,0 +1,33 @@
+{% load static %}
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Confirmation de la reservation du table</title>
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <h2>Bonjour {{ username }}</h2>
+                <p>Votre table a été reservé avec succès</p>
+
+                <br />
+
+                <p>Votre numero de reference est : {{ reference }} </p>
+
+                <p>À très bientôt !</p>
+
+                <br />
+
+                </p>Cordialement, <br/> Saveurs d'afrique</p>
+
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

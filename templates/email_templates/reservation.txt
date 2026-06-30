@@ -1,0 +1,10 @@
+Bonjour {{ username }},
+
+Votre table a été reservé avec succès
+
+Votre numero de reference est : {{ reference }}
+
+À très bientôt !
+
+Cordialement,
+Saveurs d'afrique

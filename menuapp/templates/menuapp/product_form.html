@@ -1,0 +1,26 @@
+{% extends "layout/base.html" %} {% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+{% endblock %}
+
+{% block title %}
+    <title>Création d'un produit</title>
+{% endblock %}
+
+
+{% block content %}
+    <div class="form-container">
+
+        <h1>Ajouter un produit</h1>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="btn">Créer</button>
+        </form>
+
+    </div>
+{% endblock %}

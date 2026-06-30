@@ -1,0 +1,31 @@
+footer {
+
+    padding: 70px 0;
+
+    background-color: black;
+
+    color: white;
+
+}
+
+.footer-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+
+}
+
+
+
+@media(max-width:600px) {
+
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}

@@ -1,0 +1,16 @@
+.custom-navbar {
+    background-color: #412018;
+}
+
+
+.custom-navbar .navbar-nav .nav-item a{
+    color: #F0D79F;
+}
+
+.logo-saintlouisienne {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center; /* centre horizontalement */
+}
+
+
