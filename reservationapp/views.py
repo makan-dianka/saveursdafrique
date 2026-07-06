@@ -22,7 +22,8 @@ def reservation_create_view(request):
                 "mailsubject" : "Confirmation de votre reservation",
                 "html_file" : "email_templates/reservation.html",
                 "txt_file" : "email_templates/reservation.txt",
-                "reference" : reservation.reference
+                "reference" : reservation.reference,
+                "message" : reservation.message
             }
             tools.sendmail(**maildata)
             messages.success(request, f"Votre réservation a bien été prise en compte. Votre code de reservation est : {reservation.reference}")
