@@ -6,6 +6,9 @@ import dotenv
 BASE_DIR = Path(__file__).resolve().parent.parent
 dotenv.load_dotenv(BASE_DIR / '.env')
 
+# variable pour determiné si on est prod
+PRODUCTION = os.environ.get('ENV', 'production') == 'production'
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
@@ -13,7 +16,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(',') if not DEBUG else ['*']
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(',') if PRODUCTION else ['*']
 
 
 # Application definition
@@ -40,6 +43,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'myproject.urls'
@@ -65,12 +70,24 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if PRODUCTION:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.getenv('MYSQL_SAVEURS_DB'),
+            'USER': os.getenv('MYSQL_SAVEURS_USER'),
+            'PASSWORD': os.getenv('MYSQL_SAVEURS_PASSWORD'),
+            'HOST': os.getenv('MYSQL_SAVEURS_HOST'),
+            'PORT': os.getenv('MYSQL_SAVEURS_PORT'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
