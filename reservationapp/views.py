@@ -15,7 +15,6 @@ def reservation_create_view(request):
             reservation.reference = tools.generate_reference('RSV', Reservation)
             reservation.save()
 
-
             maildata = {
                 "username" : reservation.customer_name,
                 "usermail" : reservation.email,

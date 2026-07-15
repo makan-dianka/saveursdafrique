@@ -52,11 +52,13 @@ def sendmail(**kwargs)-> bool:
     host = kwargs.get('host')
     path = kwargs.get('path')
     reference = kwargs.get('reference')
+    message = kwargs.get('message')
     info = {
         'username' : username,
         'protocol' : protocol,
         'host' : host,
         'reference' : reference,
+        'message' : message,
     }
 
     template_email = render_to_string(template_html, info)
